@@ -3,12 +3,15 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| name               | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| profile            | text   | null: false               |
+| Column                | Type    | Options                   |
+| --------------------- | ------- | ------------------------- |
+| nickname              | string  | null: false               |
+| email                 | string  | null: false, unique: true |
+| encrypted_password    | string  | null: false               |
+| password_confirmation | string  | null: false               |
+| first_name            | string  | null: false               |
+| last_name             | string  | null: false               |
+| birth_date            | integer | null: false               |
 
 ### Association
 
@@ -20,14 +23,11 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| item                | references | null: false, foreign_key: true |
+| name                | references | null: false                    |
 | user                | references | null: false, foreign_key: true |
-| category            | text       | null: false                    |
-| order method        | references | null: false                    |
-| cost                | text       | null: false                    |
-| condition           | text       | null: false                    |
-| ship from address   | string     | null: false                    |
-| shipping fee        | text       | null: false                    |
+| postage             | text       | null: false                    |
+| price               | integer    | null: false                    |
+
 
 
 ### Association
@@ -43,26 +43,27 @@
 | content   | text       | null: false                    |
 | user      | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
-- has_one    :shipping_address
+- has_many   :orders
+- has_one    :addresses
 
-## shipping address テーブル名
+## addresses テーブル名
 
 | Column           | Type       | Options                        |
 | -----------------| ---------- | ------------------------------ |
-| address          | text       | null: false                    |
-| shipping method  | references | null: false                    |
-| item             | references | null: false, foreign_key: true |
-| name             | references | null: false, foreign_key: true |
+| item             | text       | null: false, foreign_key: true |
+| price            | text       | null: false, foreign_key: true |
+| payment          | integer    | null: false                    |
+| shipping address | text       | null: false                    |
+| form             | text       | null: false                    |
+| tel              | integer    | null: false                    |
 
 
 ### Association
-- belongs_to :item
 - belongs_to :order
 
 
