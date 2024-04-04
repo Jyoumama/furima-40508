@@ -37,7 +37,7 @@
 ### Association
 
 - belongs_to :user
-- has_one    :oder
+- has_one    :order
 
 
 ## orders テーブル
@@ -52,20 +52,17 @@
 
 - belongs_to :user
 - belongs_to :items
-
+- has_one    :address
 
 ## addresses テーブル名
 
-| Column           | Type       | Options                        |
-| -----------------| ---------- | ------------------------------ |
-| price            | integer    | null: false                    |
-| shipping_address | string     | null: false                    |
-| form             | string     | null: false                    |
-| postal_code_id   | integer    | null: false                    |
-| prefecture_id    | string     | null: false                    |
-| city_id          | string     | null: false                    |
-| addresses_id     | string     | null: false                    |
-| phone-number_id  | string     | null: false                    |
+| Column             | Type       | Options                        |
+| -------------------| ---------- | ------------------------------ |
+| postal_code_id     | string     | null: false                    |
+| item_prefecture_id | string     | null: false                    |
+| city_id            | references | null: false,foreign_key: true  |
+| addresses_id       | string     | null: false                    |
+| phone_number_id    | string     | null: false                    |
 
 ### Association
 - belongs_to :order
