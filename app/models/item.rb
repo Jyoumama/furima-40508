@@ -13,8 +13,8 @@ class Item < ApplicationRecord
 
 #空の投稿を保存できないようにする
 with_options presence: true do
-validates :name
-validates :detail
+validates :name, length: { maximum: 40 }
+validates :detail, length: { maximum: 1000 }
 validates :image
 validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
