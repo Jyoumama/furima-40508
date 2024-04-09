@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
   end
 
@@ -17,5 +16,4 @@ class UsersController < ApplicationController
 
   def destroy
   end
-
 end
