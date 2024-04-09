@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
 
   belongs_to :user
-  has_one :order
+  # 購入機能実装時の差分 has_one :order
   has_one_attached :image
 
   # 空の投稿を保存できないようにする
@@ -20,6 +20,6 @@ class Item < ApplicationRecord
     validates :sales_status_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
-    validates :scheduled_delivery_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :scheduled_delivery_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 end
