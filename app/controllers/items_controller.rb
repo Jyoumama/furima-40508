@@ -2,11 +2,15 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    # @items = Item.order('created_at DESC')%> 商品一覧機能実装時の差分
+    @items = Item.all.order(created_at: :desc)
+    # @items = @items.includes(:user)
   end
 
   def new
     @item = Item.new
+  end
+
+  def show
   end
 
   def create
