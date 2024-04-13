@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
 
   belongs_to :user
-  has_one :order # 購入機能実装時の差分
+  has_one :order
   has_one_attached :image
 
   # 空の投稿を保存できないようにする
