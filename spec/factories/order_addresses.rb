@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :order_address do
-    post_code { '123-1234'}
+    postal_code { '123-1234'}
     prefecture_id { 3 }
     city { '横浜市緑区' }
     addresses { '3-4' }
@@ -8,7 +8,7 @@ FactoryBot.define do
     phone_number { '09012341234' }
     token {"tok_abcdefghijk00000000000000000"}
 
-    association :user_id
-    association :itemt_id
+    #association :item
+    #association :user
   end
 end
