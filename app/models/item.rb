@@ -1,7 +1,5 @@
 class Item < ApplicationRecord
   def sold_out?
-    # ここでは商品に紐づく購入情報が存在するかどうかを判断しています。存在すれば商品は売り切れ、存在しなければ出品中とみなします。
-    # purchaseはここでは仮の表現です。実際のコードでは関連する購入情報へのアクセス方法が適用されるべきです。
     !order.present?
   end
 
@@ -13,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
 
   belongs_to :user
-  has_one :order # 購入機能実装時の差分
+  has_one :order
   has_one_attached :image
 
   # 空の投稿を保存できないようにする
