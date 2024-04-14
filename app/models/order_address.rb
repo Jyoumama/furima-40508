@@ -11,9 +11,8 @@ class OrderAddress
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
     validates :addresses
-    validates :phone_number, numericality: { only_integer: true, message: 'is invalid. Input only number' },
-                             format: { with: /\A\d{10,11}\z/, message: 'is too short' },
-                             length: { in: 10..11, message: 'is too short (minimum is 10 characters)' }
+    validates :phone_number, numericality: { only_integer: true, message: 'is invalid. Input only number' }, format: { with: /\A\d{10,11}\z/, message: 'is too short' },
+    length: { in: 10..11, message: 'is invalid' }
     validates :token
   end
 
